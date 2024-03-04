@@ -10,7 +10,7 @@ terraform {
 
 # Configure the docker provider
 provider "docker" {
-    host = "npipe:////./pipe/docker_engine"
+    host = "unix:///var/run/docker.sock" # Para Windows utilize "npipe:////./pipe/docker_engine" e para Linux utilize "unix:///var/run/docker.sock"
 }
 
 # Docker images
