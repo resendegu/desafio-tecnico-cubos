@@ -31,7 +31,7 @@ terraform apply
 **Detalhes:**
 
 * O script `setup.sh` fará o build de todas as imagens com o Docker e definirá algumas variáveis de ambiente necessárias.
-* Foi criado o script `sql/db_script.sh` que traz embutido o script SQL do arquivo `sql/script.sql`. O script `sql/db_script.sh` irá dentro do container que contém o banco de dados, junto com as variáveis de ambiente.
+* Foi criado o script `sql/db_script.sh` que traz embutido o script SQL do arquivo `sql/script.sql`. O script `sql/db_script.sh` irá executar dentro do container que contém o banco de dados, junto com as variáveis de ambiente.
 * Foram criadas 3 Dockerfiles, uma para fazer o build de cada ambiente (backend, frontend, e database).
 * No frontend foi utilizado uma imagem do servidor web Nginx que fará o proxy reverso para as chamadas na rota /api, redirecionando-as para o container backend na porta 8081. O arquivo `frontend/default.conf` contém a configuração básica para o funcionamento do Ngnix e o proxy reverso.
 * Para o backend foi utilizado a versão do node 20.11.1-alpine do Docker Hub. O arquivo `backend/package.json` foi alterado para carregar algumas variáveis de ambiente. No arquivo `backend/index.js` foram colocadas algumas variáveis com valores para conexão com o banco e de variável de ambiente.
