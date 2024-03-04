@@ -17,8 +17,8 @@ else
     # Write environment variables to .env.local files
     for file in ".env.local" "./sql/.env.local" "./backend/.env.local"; do
         echo "postgres_password=$postgres_password
-                admin_db_password=$admin_db_password
-                admin_password=$admin_password" > "$file"
+admin_db_password=$admin_db_password
+admin_password=$admin_password" > "$file"
     done
 fi
 

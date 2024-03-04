@@ -1,9 +1,10 @@
 FROM postgres:15.4 as dumper
 
-COPY ./.env.local /docker-entrypoint-initdb.d/
-COPY ./db_script.sh /docker-entrypoint-initdb.d/
+ADD .env.local /docker-entrypoint-initdb.d/.env.local
+ADD db_script.sh /docker-entrypoint-initdb.d/db_script.sh
 
 RUN ["sed", "-i", "s/exec \"$@\"/echo \"skipping...\"/", "/usr/local/bin/docker-entrypoint.sh"]
+RUN ls -la
 
 ARG postgres_password
 ARG admin_db_password

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 #ls -lha
-source "docker-entrypoint-initdb.d/.env.local"
+source "/docker-entrypoint-initdb.d/.env.local"
 
 psql -v ON_ERROR_STOP=1 --username "postgres" <<-EOSQL
 CREATE TABLE IF NOT EXISTS "users" (
