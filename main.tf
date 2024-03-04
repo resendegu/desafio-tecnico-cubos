@@ -29,11 +29,6 @@ resource "docker_image" "db_sql" {
   keep_locally = true
 }
 
-# Create a docker network for frontend
-resource "docker_network" "frontend" {
-  name = "frontend-network"
-}
-
 # Create a docker network for backend
 resource "docker_network" "backend" {
   name = "backend-network"
@@ -68,7 +63,7 @@ resource "docker_container" "nginx-frontend" {
 
 }
 
-# Container for database in the same network as backend
+# Container for database
 resource "docker_container" "database" {
   name  = "database"
   image = docker_image.db_sql.image_id
